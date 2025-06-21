@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "emlog": {
+      "command": "npx",
+      "args": ["emlog-mcp"],
+      "env": {
+        "EMLOG_API_URL": "https://your-emlog-site.com",
+        "EMLOG_API_KEY": "your_api_key_here"
+      }
+    }
+  }
+}

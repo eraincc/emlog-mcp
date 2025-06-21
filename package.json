@@ -1,0 +1,49 @@
+{
+  "name": "emlog-mcp",
+  "version": "1.0.1",
+  "description": "MCP server for Emlog blog system integration",
+  "main": "dist/index.js",
+  "bin": {
+    "emlog-mcp": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js",
+    "watch": "tsc --watch",
+    "test": "node test-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eraincc/emlog-mcp.git"
+  },
+  "homepage": "https://github.com/eraincc/emlog-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/eraincc/emlog-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "emlog",
+    "blog",
+    "api",
+    "model-context-protocol",
+    "ai",
+    "claude"
+  ],
+  "author": "Yiklam",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.1",
+    "axios": "^1.6.0",
+    "form-data": "^4.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
