@@ -2,6 +2,10 @@
 
 一个基于 Model Context Protocol (MCP) 的 Emlog 博客系统集成服务，允许 AI 助手通过标准化接口与 Emlog 博客进行交互。
 
+<a href="https://glama.ai/mcp/servers/@eraincc/emlog-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@eraincc/emlog-mcp/badge" alt="Emlog Server MCP server" />
+</a>
+
 ## 项目信息
 
 - **项目名称**: emlog-mcp
