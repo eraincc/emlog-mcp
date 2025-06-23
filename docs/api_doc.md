@@ -619,25 +619,25 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 
 #### 请求参数[](https://www.emlog.net/docs/api/#请求参数-15)
 
-| 参数           | 是否必填 | 描述                                             |
-| -------------- | -------- | ------------------------------------------------ |
-| title          | 必填     | 文章标题                                         |
-| content        | 必填     | 文章内容                                         |
-| excerpt        | 否       | 文章摘要                                         |
-| cover          | 否       | 文章封面                                         |
-| author_uid     | 否       | 作者的用户ID，可在后台用户管理页面查看           |
-| sort_id        | 否       | 文章分类ID，可在后台分类管理页面查看             |
-| tags           | 否       | 文章标签，多个半角逗号分隔，如：PHP,MySQL        |
-| draft          | 否       | 是否发布为草稿，是y， 否n （默认为n）            |
-| post_date      | 否       | 发布时间，如：`2022-05-03 23:30:16`              |
-| top            | 否       | 首页置顶，是y，否n，默认否                       |
-| sortop         | 否       | 分类置顶，是y，否n，默认否                       |
-| allow_remark   | 否       | 允许评论，是y，否n，默认否                       |
-| password       | 否       | 文章访问密码                                     |
-| link           | 否       | 文章跳转链接，填写后不展示文章内容直接跳转该地址 |
-| field_keys[]   | 否       | 自定义字段名称，如价格：price                    |
-| field_values[] | 否       | 自定义字段值，如价格的值：9.9                    |
-| auto_cover     | 否       | 自动获取文章内图片作为封面，是y，否n             |
+| 参数           | 是否必填 | 描述                                         |
+| -------------- | -------- | -------------------------------------------- |
+| title          | 必填     | 标题                                         |
+| content        | 必填     | 内容                                         |
+| excerpt        | 否       | 摘要                                         |
+| cover          | 否       | 封面                                         |
+| author_uid     | 否       | 作者的用户ID，可在后台用户管理页面查看       |
+| sort_id        | 否       | 分类ID，可在后台分类管理页面查看             |
+| tags           | 否       | 标签，多个半角逗号分隔，如：PHP,MySQL        |
+| draft          | 否       | 是否发布为草稿，是y， 否n （默认为n）        |
+| post_date      | 否       | 发布时间，如：`2022-05-03 23:30:16`          |
+| top            | 否       | 首页置顶，是y，否n，默认否                   |
+| sortop         | 否       | 分类置顶，是y，否n，默认否                   |
+| allow_remark   | 否       | 允许评论，是y，否n，默认否                   |
+| password       | 否       | 访问密码                                     |
+| link           | 否       | 跳转链接，填写后不展示文章内容直接跳转该地址 |
+| field_keys[]   | 否       | 自定义字段名称，如价格：price                |
+| field_values[] | 否       | 自定义字段值，如价格的值：9.9                |
+| auto_cover     | 否       | 自动获取文章内图片作为封面，是y，否n         |
 
 #### 返回结果[](https://www.emlog.net/docs/api/#返回结果-15)
 
@@ -653,9 +653,9 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 
 
 
-### 文章编辑[](https://www.emlog.net/docs/api/#文章编辑)
+### 文章（草稿）编辑[](https://www.emlog.net/docs/api/#文章草稿编辑)
 
-- 文章编辑接口
+- 文章（草稿）编辑接口
 - 接口URL：https://yourdomain/?rest-api=article_update
 - 请求方式：POST
 - 请求体格式：Form Data（application/x-www-form-urlencoded）
@@ -664,18 +664,18 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 
 #### 请求参数[](https://www.emlog.net/docs/api/#请求参数-16)
 
-| 参数       | 是否必填 | 描述                                      |
-| ---------- | -------- | ----------------------------------------- |
-| id         | 必填     | 文章ID                                    |
-| title      | 必填     | 文章标题                                  |
-| content    | 否       | 文章内容                                  |
-| excerpt    | 否       | 文章摘要                                  |
-| cover      | 否       | 文章封面                                  |
-| author_uid | 否       | 作者的用户ID，可在后台用户管理页面查看    |
-| sort_id    | 否       | 文章分类ID，可在后台分类管理页面查看      |
-| tags       | 否       | 文章标签，多个半角逗号分隔，如：PHP,MySQL |
-| draft      | 否       | 是否发布为草稿，是y， 否n （默认为n）     |
-| post_date  | 否       | 发布时间，如：`2022-05-03 23:30:16`       |
+| 参数       | 是否必填 | 描述                                   |
+| ---------- | -------- | -------------------------------------- |
+| id         | 必填     | 文章（草稿）ID                         |
+| title      | 必填     | 标题                                   |
+| content    | 否       | 内容                                   |
+| excerpt    | 否       | 摘要                                   |
+| cover      | 否       | 封面                                   |
+| author_uid | 否       | 作者的用户ID，可在后台用户管理页面查看 |
+| sort_id    | 否       | 分类ID，可在后台分类管理页面查看       |
+| tags       | 否       | 标签，多个半角逗号分隔，如：PHP,MySQL  |
+| draft      | 否       | 是否发布为草稿，是y， 否n （默认为n）  |
+| post_date  | 否       | 发布时间，如：`2022-05-03 23:30:16`    |
 
 #### 返回结果[](https://www.emlog.net/docs/api/#返回结果-16)
 
@@ -841,6 +841,102 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 | need_pwd        | 是否设置密码 y是 n否          |
 | fields          | 自定义字段                    |
 
+### 草稿列表[](https://www.emlog.net/docs/api/#草稿列表)
+
+- 获取最近发布的草稿列表
+- 接口URL：https://yourdomain/?rest-api=draft_list
+- 请求方式：GET
+- 接口鉴权方式：【API秘钥鉴权】 或者 【cookie鉴权】
+- 返回格式：JSON
+
+#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-19)
+
+| 参数  | 是否必填 | 描述     |
+| ----- | -------- | -------- |
+| count | 否       | 获取数量 |
+
+#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-19)
+
+```json
+{
+    "code": 0,
+    "msg": "ok",
+    "data": {
+        "drafts": [
+            {
+                "id": 6,
+                "title": "无标题",
+                "cover": "",
+                "excerpt": "",
+                "date": "2025-06-12 21:25:57",
+                "author_id": 1,
+                "author_name": "emer",
+                "author_avatar": "http://localhost:8080/admin/views/images/avatar.svg",
+                "sort_id": -1,
+                "sort_name": "",
+                "views": 0,
+                "comnum": 0,
+                "like_count": 0,
+                "top": "n",
+                "sortop": "n",
+                "tags": [],
+                "need_pwd": "n",
+                "fields": []
+            }
+        ]
+    }
+}
+```
+
+
+
+### 草稿详情[](https://www.emlog.net/docs/api/#草稿详情)
+
+- 获取草稿的详情接口
+- 接口URL：https://yourdomain/?rest-api=draft_detail
+- 请求方式：GET
+- 接口鉴权方式：【API秘钥鉴权】 或者 【cookie鉴权】
+- 返回格式：JSON
+
+#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-20)
+
+| 参数 | 是否必填 | 描述   |
+| ---- | -------- | ------ |
+| id   | 是       | 草稿ID |
+
+#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-20)
+
+```json
+{
+    "code": 0,
+    "msg": "ok",
+    "data": {
+        "draft": {
+            "title": "这是一篇草稿",
+            "date": "2025-06-12 21:25:57",
+            "id": 6,
+            "sort_id": -1,
+            "sort_name": "",
+            "author_id": 1,
+            "author_name": "emer",
+            "author_avatar": "http://localhost:8080/admin/views/images/avatar.svg",
+            "content": "这是一篇草稿",
+            "excerpt": "这是一篇草稿",
+            "cover": "",
+            "views": 1,
+            "comnum": 0,
+            "like_count": 0,
+            "top": "n",
+            "sortop": "n",
+            "tags": [],
+            "fields": []
+        }
+    }
+}
+```
+
+
+
 ### 分类列表[](https://www.emlog.net/docs/api/#分类列表)
 
 - 获取全部分类列表（包括子分类栏目）接口
@@ -851,7 +947,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 
 #### 请求参数：无[](https://www.emlog.net/docs/api/#请求参数无-1)
 
-#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-19)
+#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-21)
 
 ```json
 {
@@ -897,7 +993,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 - 接口鉴权方式：【API秘钥鉴权】 或者 【cookie鉴权】
 - 返回格式：JSON
 
-#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-19)
+#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-21)
 
 | 参数       | 是否必填 | 描述                                   |
 | ---------- | -------- | -------------------------------------- |
@@ -905,7 +1001,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 | private    | 否       | 是否私密，y私密，n公开，默认公开       |
 | author_uid | 否       | 作者的用户ID，可在后台用户管理页面查看 |
 
-#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-20)
+#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-22)
 
 ```json
 {
@@ -927,7 +1023,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 - 接口鉴权方式：【API秘钥鉴权】 或者 【cookie鉴权】
 - 返回格式：JSON
 
-#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-20)
+#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-22)
 
 | 参数       | 是否必填 | 描述                                   |
 | ---------- | -------- | -------------------------------------- |
@@ -935,7 +1031,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 | count      | 否       | 每页文章数量，默认跟随后台设置         |
 | author_uid | 否       | 作者的用户ID，可在后台用户管理页面查看 |
 
-#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-21)
+#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-23)
 
 ```json
 {
@@ -968,7 +1064,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 - 接口鉴权方式：【API秘钥鉴权】
 - 返回格式：JSON
 
-#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-21)
+#### 请求参数[](https://www.emlog.net/docs/api/#请求参数-23)
 
 | 参数       | 是否必填 | 描述                                   |
 | ---------- | -------- | -------------------------------------- |
@@ -976,7 +1072,7 @@ EM_AUTHCOOKIE_XXXXX=admin%7C0%7C2a12e9a651b7e44be3d2d3536f51eaaa; Path=/; HttpOn
 | author_uid | 否       | 作者的用户ID，可在后台用户管理页面查看 |
 | sid        | 否       | 资源分类ID                             |
 
-#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-22)
+#### 返回结果[](https://www.emlog.net/docs/api/#返回结果-24)
 
 ```json
 {

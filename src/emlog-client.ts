@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
 import fs from 'fs';
-import path from 'path';
 import FormData from 'form-data';
 
 // Emlog API 数据接口
@@ -65,6 +64,12 @@ export interface EmlogComment {
   top: 'y' | 'n';
   level?: number;
   children?: EmlogComment[];
+}
+
+export interface EmlogCommentStack {
+  // 评论堆栈结构，用于处理评论的层级关系
+  // 根据实际API返回结构定义
+  [key: string]: any;
 }
 
 export interface EmlogTag {
@@ -188,7 +193,7 @@ export class EmlogClient {
   }
 
   // 构建查询参数
-  private buildParams(params: Record<string, any> = {}): URLSearchParams {
+  private buildParams(params: Record<string, string | number | boolean | undefined> = {}): URLSearchParams {
     const searchParams = new URLSearchParams();
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
@@ -200,7 +205,7 @@ export class EmlogClient {
   }
 
   // 构建表单数据
-  private buildFormData(data: Record<string, any> = {}): URLSearchParams {
+  private buildFormData(data: Record<string, string | number | boolean | string[] | undefined> = {}): URLSearchParams {
     const formData = new URLSearchParams();
     Object.entries(data).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
@@ -233,7 +238,7 @@ export class EmlogClient {
 
   // 获取文章详情
   async getArticleDetail(id: number, password?: string): Promise<EmlogPost> {
-    const params: any = { id };
+    const params: { id: number; password?: string } = { id };
     if (password) params.password = password;
     const queryParams = this.buildParams(params);
     const response = await this.api.get(`/?rest-api=article_detail&${queryParams.toString()}`);
@@ -307,6 +312,24 @@ export class EmlogClient {
     return response.data.data;
   }
 
+  // ========== 草稿相关接口 ==========
+  
+  // 获取草稿列表
+  async getDraftList(params: {
+    count?: number;
+  } = {}): Promise<{ drafts: EmlogPost[] }> {
+    const queryParams = this.buildParams(params);
+    const response = await this.api.get(`/?rest-api=draft_list&${queryParams.toString()}`);
+    return response.data.data;
+  }
+
+  // 获取草稿详情
+  async getDraftDetail(id: number): Promise<{ draft: EmlogPost }> {
+    const queryParams = this.buildParams({ id });
+    const response = await this.api.get(`/?rest-api=draft_detail&${queryParams.toString()}`);
+    return response.data.data;
+  }
+
   // ========== 分类相关接口 ==========
   
   // 获取分类列表
@@ -319,8 +342,8 @@ export class EmlogClient {
   // ========== 评论相关接口 ==========
   
   // 获取评论列表
-  async getCommentList(id: number, page?: number): Promise<{ comments: Record<string, EmlogComment>; commentStacks: any[]; commentPageUrl: string }> {
-    const params: any = { id };
+  async getCommentList(id: number, page?: number): Promise<{ comments: Record<string, EmlogComment>; commentStacks: EmlogCommentStack[]; commentPageUrl: string }> {
+    const params: { id: number; page?: number } = { id };
     if (page) params.page = page;
     const queryParams = this.buildParams(params);
     const response = await this.api.get(`/?rest-api=comment_list&${queryParams.toString()}`);

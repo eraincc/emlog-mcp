@@ -17,6 +17,7 @@
 - **分类** (`emlog://categories`) - 获取所有分类信息
 - **评论** (`emlog://comments`) - 获取评论列表（基于最新文章）
 - **微语笔记** (`emlog://notes`) - 获取微语笔记列表
+- **草稿文章** (`emlog://drafts`) - 获取所有草稿文章列表
 - **用户信息** (`emlog://user`) - 获取当前用户信息
 
 ### 工具 (Tools)
@@ -30,6 +31,8 @@
 - **create_note** - 创建微语笔记
 - **upload_file** - 上传文件（图片等媒体资源）
 - **get_user_info** - 获取用户信息
+- **get_draft_list** - 获取草稿文章列表
+- **get_draft_detail** - 获取指定草稿的详细信息
 
 ## 技术栈
 
@@ -142,6 +145,10 @@ npm run dev
 - `POST /api/article_save` - 创建/更新文章
 - `POST /api/article_like` - 文章点赞
 
+### 草稿管理
+- `GET /api/draft_list` - 获取草稿列表
+- `GET /api/draft_detail` - 获取指定草稿详情
+
 ### 分类管理
 - `GET /api/sort_list` - 获取分类列表
 
@@ -198,6 +205,30 @@ npm run dev
 // 通过 MCP 资源访问
 {
   "uri": "emlog://articles"
+}
+```
+
+### 获取草稿列表
+
+```typescript
+// 获取草稿列表
+{
+  "name": "get_draft_list",
+  "arguments": {
+    "count": 10
+  }
+}
+```
+
+### 获取草稿详情
+
+```typescript
+// 获取指定草稿的详细信息
+{
+  "name": "get_draft_detail",
+  "arguments": {
+    "id": 123
+  }
 }
 ```
 
