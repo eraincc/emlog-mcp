@@ -11,14 +11,6 @@ An Emlog blog system integration service based on Model Context Protocol (MCP), 
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@eraincc/emlog-mcp/badge" alt="Emlog MCP Server" />
 </a>
 
-## Project Information
-
-- **Project Name**: emlog-mcp
-- **Package Name**: emlog-mcp
-- **Author**: Yiklam
-- **Repository**: [https://github.com/eraincc/emlog-mcp](https://github.com/eraincc/emlog-mcp)
-- **License**: MIT
-
 ## Features
 
 ### Resources

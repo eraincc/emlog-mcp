@@ -11,14 +11,6 @@
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@eraincc/emlog-mcp/badge" alt="Emlog MCP Server" />
 </a>
 
-## 專案資訊
-
-- **專案名稱**: emlog-mcp
-- **套件名稱**: emlog-mcp
-- **作者**: Yiklam
-- **儲存庫位址**: [https://github.com/eraincc/emlog-mcp](https://github.com/eraincc/emlog-mcp)
-- **授權條款**: MIT
-
 ## 功能特色
 
 ### 資源 (Resources)
